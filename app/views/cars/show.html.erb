@@ -1,0 +1,9 @@
+<h1><%= @car.name %></h1>
+
+<% @car.pictures.each do |picture| %>
+
+  <%= image_tag(picture.img_url, alt: picture.alt_text) %>
+
+<% end %>
+
+<%= link_to "Edit", edit_car_path(@car) %>
