@@ -1,5 +1,7 @@
 next week:
 
-forms to create new cars
-
 active storage???
+
+left and right hand operators -- let's talk about 'em!
+
+adding pictures actions

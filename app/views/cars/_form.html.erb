@@ -1,0 +1,29 @@
+<%= form_with model: @car do |form| %>
+
+  <h1><%= title %></h1>
+
+  <!-- errors! -->
+
+  <ul>
+    <% @car.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
+
+  <%# fields! %>
+
+  <%= form.label :make %>
+  <%= form.text_field :make %>
+  <br>
+
+  <%= form.label :model %>
+  <%= form.text_field :model %>
+  <br>
+
+  <%= form.label :year %>
+  <%= form.text_field :year %>
+  <br>
+
+  <%= form.submit %>
+
+<% end %>
