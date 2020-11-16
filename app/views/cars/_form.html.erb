@@ -1,4 +1,4 @@
-<%= form_with model: @car do |form| %>
+<%= form_with url: brand_cars_path(@brand) do |form| %>
 
   <h1><%= title %></h1>
 
@@ -12,17 +12,27 @@
 
   <%# fields! %>
 
-  <%= form.label :make %>
-  <%= form.text_field :make %>
-  <br>
+  <%= form.fields_for @brand do |brand_form| %>
 
-  <%= form.label :model %>
-  <%= form.text_field :model %>
-  <br>
+    <%= brand_form.label :name, "Brand Name" %>
+    <%= brand_form.text_field :name %>
 
-  <%= form.label :year %>
-  <%= form.text_field :year %>
-  <br>
+  <% end %>
+
+  <%= form.fields_for @car do |car_form| %>
+
+    <%= car_form.collection_select(:brand_id, Brand.all, :id, :name) %>
+    <br>
+
+    <%= car_form.label :model %>
+    <%= car_form.text_field :model %>
+    <br>
+
+    <%= car_form.label :year %>
+    <%= car_form.text_field :year %>
+    <br>
+
+  <% end %>
 
   <%= form.submit %>
 

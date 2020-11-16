@@ -1,5 +1,11 @@
-<% @cars.each do |car| %>
+<% @brands.each do |brand| %>
 
-  <%= link_to car.name, car_path(car) %>
+  <h3><%= brand.name %></h3>
+
+  <% brand.cars.each do |car| %>
+
+    <%= link_to car.name, brand_car_path(car.brand, car) %>
+
+  <% end %>
 
 <% end %>
